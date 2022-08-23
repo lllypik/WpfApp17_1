@@ -18,18 +18,18 @@ namespace WpfApp17_1
     /// <summary>
     /// Логика взаимодействия для ColorPicker.xaml
     /// </summary>
-    public partial class ColorPicker : UserControl
+    public partial class ColorPicker : System.Windows.Controls.UserControl
     {
+
+        public static DependencyProperty ColorProperty;
+        public static DependencyProperty RedProperty;
+        public static DependencyProperty GreenProperty;
+        public static DependencyProperty BlueProperty;
+
         public ColorPicker()
         {
             InitializeComponent();
         }
-
-        public static DependencyProperty ColorProperty;
-
-        public static DependencyProperty RedProperty;
-        public static DependencyProperty GreenProperty;
-        public static DependencyProperty BlueProperty;
 
         static ColorPicker()
         {
@@ -47,16 +47,6 @@ namespace WpfApp17_1
             RedProperty = DependencyProperty.Register
                 (
                 "Red",
-                typeof(byte),
-                typeof(ColorPicker),
-                new FrameworkPropertyMetadata(
-                    new PropertyChangedCallback(OnColorRGBChanged))
-                );
-
-
-            BlueProperty = DependencyProperty.Register
-                (
-                "Blue",
                 typeof(byte),
                 typeof(ColorPicker),
                 new FrameworkPropertyMetadata(
@@ -99,6 +89,7 @@ namespace WpfApp17_1
             DependencyPropertyChangedEventArgs e)
         {
             ColorPicker colorPicker = (ColorPicker)sender;
+
             Color color = colorPicker.Color;
             if (e.Property == RedProperty)
                 color.R = (byte)e.NewValue;

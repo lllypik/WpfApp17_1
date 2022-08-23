@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:WpfApp17_1"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="300"
-             Name="ColorPicker">
+             Name="colorPicker">
     <StackPanel>
         <Border BorderThickness="2" BorderBrush="Black">
             <Grid>
@@ -41,8 +41,10 @@
             FontSize="20" FontWeight="Bold" Foreground="Blue" 
             HorizontalAlignment="Center" VerticalAlignment="Center"         
             />
+                
                 <Slider
             x:Name="sliderRed"
+            Value="{Binding ElementName=colorPicker, Path=Red}"
             Grid.Row="0" Grid.Column="1"
             Minimum="0" Maximum="255"
             VerticalAlignment="Center"
@@ -51,7 +53,7 @@
 
                 <Slider
             x:Name="sliderGreen"
-            Value="{Binding ElementName=ColorPicker, Path=Red}"
+            Value="{Binding ElementName=colorPicker, Path=Green}"
             Grid.Row="1" Grid.Column="1"
             Minimum="0" Maximum="255"
             VerticalAlignment="Center"
@@ -60,7 +62,7 @@
 
                 <Slider
             x:Name="sliderBlue"
-            Value="{Binding ElementName=ColorPicker, Path=Blue}"
+            Value="{Binding ElementName=colorPicker, Path=Blue}"
             Grid.Row="2" Grid.Column="1"
             Minimum="0" Maximum="255"
             VerticalAlignment="Center"
@@ -72,7 +74,7 @@
             Grid.Row="0" Grid.Column="2" Grid.RowSpan="3"
             Margin="10">
                     <Rectangle.Fill>
-                        <SolidColorBrush Color="{Binding ElementName=ColorPicker, Path=Color}"/>
+                        <SolidColorBrush Color="{Binding ElementName=colorPicker, Path=Color}"/>
                     </Rectangle.Fill>
                 </Rectangle>
             </Grid>
