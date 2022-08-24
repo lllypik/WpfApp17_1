@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+﻿using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfApp17_1
 {
@@ -47,6 +35,15 @@ namespace WpfApp17_1
             RedProperty = DependencyProperty.Register
                 (
                 "Red",
+                typeof(byte),
+                typeof(ColorPicker),
+                new FrameworkPropertyMetadata(
+                    new PropertyChangedCallback(OnColorRGBChanged))
+                );
+
+            GreenProperty = DependencyProperty.Register
+                (
+                "Green",
                 typeof(byte),
                 typeof(ColorPicker),
                 new FrameworkPropertyMetadata(
